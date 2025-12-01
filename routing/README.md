@@ -1,7 +1,7 @@
 ### **1. Default Page and Error Handling** 🏠
 
 - A new Next.js app automatically generates a **home page**.
-- Next.js provides a built-in, customizable **"404 - This page could not be found" error page** for non-existent routes
+- Next.js provides a built-in, customizable **"404 - This page could not be found" error page** fo non-existent routes
 
 ---
 
