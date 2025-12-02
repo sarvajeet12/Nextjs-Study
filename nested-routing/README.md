@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 2. Nested Routing with App Router
 
-## Getting Started
+### **1. Nested Routing Concept & Scenario** 📂
 
-First, run the development server:
+- **Definition:** Nested routing means creating routes that are sub-paths of other routes (e.g., `/services/web-dev` where `web-dev` is nested under `services`).
+- **Example Scenario:** A "Technical Agency" website with a main `/services` page listing services like App Development, Web Development, SEO, and Design. Each service will then have its own dedicated nested page (e.g., `/services/web-dev`).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Implementing Nested Routes (Directory Structure)** ➡️
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- To create a nested route, you create a **new folder inside the parent route's folder**.
+    - **Example:** For `/services/web-dev`, you would create a `web-dev` folder inside the `services` folder.
+- Inside this new nested folder (e.g., `web-dev`), you place a **`page.js` file** (or `.jsx`/`.tsx`).
+- This `page.js` file will contain the React component that renders the content for that specific nested route.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### **3. Linking to Nested Routes** 🔗
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- When using the **`Link` component from `next/link`**, you must provide the **full path** to the nested route.
+    - **Example:** To link to the web development page from the services page, the `href` attribute would be `/services/web-dev`.
+- **Important Distinction:** Unlike some other routing libraries (like `react-router-dom`) where relative paths (e.g., `./`) might work differently, Next.js requires the **explicit, full path** for nested links .
+- **Case Sensitivity:** Route paths are **case-sensitive** (e.g., `/services/SEO` will not work if the folder is named `seo`). It's a best practice to use **lowercase for route paths** .
