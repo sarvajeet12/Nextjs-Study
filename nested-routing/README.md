@@ -1,4 +1,4 @@
-# 2. Nested Routing with App Router
+# Nested Routing with App Router
 
 ### **1. Nested Routing Concept & Scenario** 📂
 
