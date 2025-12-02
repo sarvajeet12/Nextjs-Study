@@ -9,6 +9,8 @@ export default function Home() {
       <Link href="/about">About</Link>
       <br />
       <Link href="/services">Services</Link>
+      <br />
+      <Link href="/blog">Blog</Link>
     </div>
   );
 }

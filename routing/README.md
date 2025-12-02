@@ -1,3 +1,5 @@
+### Routing : 
+
 ### **1. Default Page and Error Handling** 🏠
 
 - A new Next.js app automatically generates a **home page**.
@@ -32,3 +34,42 @@
     - Imported from `next/link`.
     - Enables **client-side navigation** without a full page reload, providing a smoother user experience.
     - Uses the `href` attribute to specify the destination path.
+
+
+### Dynamic Routing : 
+
+
+### **1. Understanding `props` in Next.js Components** 📦
+
+- Every component in Next.js receives a `props` object by default.
+- The `props` object contains two important properties:
+    - **`searchParams`**: Holds **query parameters** from the URL (e.g., `?name=Anurag&age=98`). You need to `await` its value as it's a promise.
+    - **`params`**: Holds **dynamic route parameters**. For static routes, it's initially an empty object. You also need to `await` its value.
+
+---
+
+### **2. Dynamic Routes: Creation and Usage** 🔄
+
+### **2.1. What are Dynamic Routes?**
+
+- They are used for pages with **similar structures but varying content** based on a URL parameter (e.g., `/blogs/post-1`, `/blogs/post-2`).
+- Instead of creating a separate file for each piece of content (e.g., `blog/1.js`, `blog/2.js`), you create a single dynamic route.
+
+### **2.2. How to Create Dynamic Routes**
+
+- Create a **folder with square brackets** in its name, e.g., `[slug]` or `[blogId]`, inside your parent route folder (e.g., `app/blogs/[blogId]`).
+- Inside this bracketed folder, create a **`page.js` file** .
+- The name inside the square brackets (e.g., `blogId`) becomes the **key** in the `params` object.
+- **Convention:** Use a plural name for the parent folder (e.g., `blogs`) and a singular, descriptive name for the dynamic segment (e.g., `[blogId]`).
+
+### **2.3. Accessing Dynamic Route Parameters**
+
+- Inside the `page.js` component of the dynamic route, you can access the dynamic part of the URL from the `params` object.
+- Make your component **`async`** and destructure `params` from `props` (e.g., `async function Page({ params }) { ... }`).
+- **Example:** If your route is `blogs/[blogId]/page.js` and the URL is `/blogs/my-first-post`, then `params` will be `{ blogId: 'my-first-post' }`.
+- The `params.blogId` value can then be used to **fetch specific data** for that page (e.g., from an API or database).
+- **Server Restart:** If you change the name of the dynamic segment (e.g., from `[kuchbhi]` to `[blogId]`), you might need to **restart your Next.js development server** for changes to apply.
+
+### **2.4. Limitations**
+
+- Dynamic routes created this way are typically **single-level**; a route like `blogs/[id]/another-segment` won't work with a simple `[id]` structure for handling `another-segment` as a dynamic part.
