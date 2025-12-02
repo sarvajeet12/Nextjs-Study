@@ -35,6 +35,8 @@
     - Enables **client-side navigation** without a full page reload, providing a smoother user experience.
     - Uses the `href` attribute to specify the destination path.
 
+---
+---
 
 ### Dynamic Routing : 
 
