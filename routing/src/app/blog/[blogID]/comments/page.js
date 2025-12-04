@@ -1,3 +1,5 @@
+// Start : Dynamic nested route
+
 export default async function Comments({params}) {
 
 
